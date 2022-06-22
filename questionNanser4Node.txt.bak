@@ -1,0 +1,43 @@
+Q1 - What is Node.js?
+Node.js is :
+
+Open Source (Source code of Node.js is available openly and can be modified and built)
+Cross Platform (Works on different operating systems)
+Asynchronous
+Event Driven (Web Requests are considered as events)
+JavaScript Runtime Environment (JavaScript is run outside the browser)
+Q2 - Which is the scripting/programming language used for Node.js application programming?
+The answer is one word. JavaScript.
+
+Q3 - How is Node.js different from previous server side programming frameworks?
+Previous frameworks were not event driven. Node.js is a single thread driven.
+
+Q4 - What are the features of Node.js?
+Some of the important features of Node.js are :
+
+Asynchronous and Event Driven
+Code Execution is very fast since Node.js is built on Chrome’s V8 JavaScript Engine.
+Highly Scalable because of Event Looping.
+Q5 - How is event-driven programming?
+Requests to the Node.js are considered as events. When a request is made, Node.js server accepts the request,  attaches it to a callback,  and starts preparing the response. When the response is being prepared, the server does not wait; it takes in other requests from clients. Whenever a response is ready, it is served via callback function. Thus everything is considered an event,
+
+Q6 - What is MEAN stack? What is the place of Node.js in the MEAN stack?
+MEAN is a JavaScript software stack. It is used for building dynamic websites and web applications. MEAN Stack components are :
+
+MongoDB
+Express.js
+Angular.js or Angular
+Node.js
+Q7 - How do you install a module in node?
+A module is installed in node using NPM command line interface, npm. The command to install a module is : npm install <package>
+
+Q8 - What is npm?
+npm stands for Node Package Manager. npm is the package manager for JavaScript.
+
+Q9 - How is local installation of a dependency done?
+The default behavior of npm is to install the package/module local to the project. To install a dependency locally, navigate to the project folder and run the following command. npm install <package>
+
+Q10 - How is global installation of a dependency done?
+To install a dependency globally, i.e., the module can be used in any node project on the machine, use global option in the npm install command as shown below : npm install <package> --global or npm install <package> --g
+
+Q11 - How do you uninstall a dependency using npm?

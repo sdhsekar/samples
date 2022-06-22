@@ -1,0 +1,28 @@
+npm install request
+
+
+npm install http
+npm install fs
+npm install formidable
+
+	http : for server acitivities.
+	node fs : to save the uploaded file to a location at server.
+	formidable : to parse html form data.
+	
+npm ls --prod --long
+
+	Discovering your dependencies is as easy as running npm ls in your application’s parent folder, which lists the packages you use. You can use the --prod argument to only display production dependencies (which impact your security the most), and add --long to get a short description of each package.
+	
+	
+depcheck 
+	Checking for unused dependencies is most easily done using the depcheck tool. depcheck scans your code for requires and import commands, correlate those with the packages installed or mentioned in your package.json, and provide a report. The command can be tweaked in various ways using command flags, making it easy to automate checking for unused dep’s.
+	
+npm outdated --prod
+	You can find out whether or not you’re using the latest version using the npm outdated command. This command also supports the --prod flag to ignore dev dependencies, as well as --json to simplify automation. You can also use Greenkeeper to proactively inform you when you’re not using the latest version.
+
+npm view marked time.modified
+	Creating an open source project, including npm packages, is fun. Many talented developers create such projects in their spare time, investing a lot of time and energy in making them good. Over time, however, the excitement often wears off, and life changes can make it hard to find the needed time.
+
+npm view <pkg> maintainers	
+npm view express maintainers
+	Many npm packages only have a single maintainer, or a very small number of those. While there’s nothing specifically wrong with that, those packages do have a higher risk of getting abandoned. In addition, larger teams are more likely to have at least some members who better understand and care more about security.

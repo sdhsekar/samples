@@ -1,0 +1,250 @@
+Q1 - What is Node.js?
+Node.js is :
+
+Open Source (Source code of Node.js is available openly and can be modified and built)
+Cross Platform (Works on different operating systems)
+Asynchronous
+Event Driven (Web Requests are considered as events)
+JavaScript Runtime Environment (JavaScript is run outside the browser)
+Q2 - Which is the scripting/programming language used for Node.js application programming?
+The answer is one word. JavaScript.
+
+Q3 - How is Node.js different from previous server side programming frameworks?
+Previous frameworks were not event driven. Node.js is a single thread driven.
+
+Q4 - What are the features of Node.js?
+Some of the important features of Node.js are :
+
+Asynchronous and Event Driven
+Code Execution is very fast since Node.js is built on Chrome’s V8 JavaScript Engine.
+Highly Scalable because of Event Looping.
+Q5 - How is event-driven programming?
+Requests to the Node.js are considered as events. When a request is made, Node.js server accepts the request,  attaches it to a callback,  and starts preparing the response. When the response is being prepared, the server does not wait; it takes in other requests from clients. Whenever a response is ready, it is served via callback function. Thus everything is considered an event,
+
+Q6 - What is MEAN stack? What is the place of Node.js in the MEAN stack?
+MEAN is a JavaScript software stack. It is used for building dynamic websites and web applications. MEAN Stack components are :
+
+MongoDB
+Express.js
+Angular.js or Angular
+Node.js
+Q7 - How do you install a module in node?
+A module is installed in node using NPM command line interface, npm. The command to install a module is : npm install <package>
+
+Q8 - What is npm?
+npm stands for Node Package Manager. npm is the package manager for JavaScript.
+
+Q9 - How is local installation of a dependency done?
+The default behavior of npm is to install the package/module local to the project. To install a dependency locally, navigate to the project folder and run the following command. npm install <package>
+
+Q10 - How is global installation of a dependency done?
+To install a dependency globally, i.e., the module can be used in any node project on the machine, use global option in the npm install command as shown below : npm install <package> --global or npm install <package> --g
+
+Q11 - How do you uninstall a dependency using npm?
+To uninstall a package or dependency, run npm unistall command with the package name to be removed. npm uninstall <package>
+
+Q12 - What is the command for importing a package?
+require command is used to include a package/module in a script file.
+
+Example to include fs module in the script file is :
+
+var fs = require('fs');
+Q13 - How to add new functionalities to a module?
+New functions could be added to the existing modules. The step by step process is :
+
+Include the module in the script file using require statement.
+Add a function to the module using dot (.) operator.
+Export the module for the changes to take effect.
+Following is an example where a new function named printMessage is added to fs module.
+
+// include the module that you like extend
+var fs = require('fs');
+  
+// add a new function, printMessage(), to the module
+fs.printMessage = function(str){
+    console.log("Message from newly added function to the module");
+    console.log(str);
+}
+  
+// re-export the module for changes to take effect
+module.exports = fs
+  
+// you may use the newly added function
+fs.printMessage("Success");
+Reference : Node.js – Add new functions to module
+
+Q14 - How to override functions of module?
+As required for the project, existing functions could be overridden.
+
+The step by step process to override functions of a module is :
+
+Include the module in the script file.
+Delete the function (whose functionality has to be altered) using module variable.
+Add function with the same to the module variable.
+Export the module for the changes to take effect.
+Following is an example, to demonstrate the same :
+
+// include the module whose functions are to be overridden
+var fs = require('fs');
+  
+// delete the function you would like to override
+delete fs['readFile'];
+  
+// add new functional with the same name as deleted function
+fs.readFile = function(str){
+    console.log("The functionality has been overridden.");
+    console.log(str);
+}
+  
+// re-export the module for changes to take effect
+module.exports = fs
+  
+// you may use the newly overriden function
+fs.readFile("sample.txt");
+Reference : Node.js – Override functions of a module
+
+Q15 - What is a callback?
+Callback function is used in Node.js to deal with event handling.
+
+When an asynchronous function is called upon a resource for some task, the control is let immediately to continue with the subsequent statements after the function. The task on the resource would start in parallel. This helps Node.js continue with other tasks while the function is working with the resource. Once the task with the resource is completed, Node.js resumes with the callback function. Callback function is called with arguments : data object, result object and (or) error object containing information regarding the task.
+
+An example for Node.js Callback function is :
+
+var fs = require('fs');
+  
+// read file sample.txt
+fs.readFile('sample.txt',
+    // callback function that is called when reading file is done
+    function(err, data) {        
+        if (err) throw err;
+        // data is a buffer containing file content
+        console.log("Reading file completed : " + new Date().toISOString());
+});
+  
+console.log("After readFile asynchronously : " + new Date().toISOString());
+Reference : Node.js – Callback Function
+
+Q16 - What is callback hell?
+Callback hell is a situation when callback functions are nested. Nesting a callback function in another callback function leads to unmanageable code.
+
+Q17 - How can you avoid callback hell?
+There are many procedures to avoid callback hell. Some of them are ;
+
+Async
+async.waterfall()
+async.series()
+Promises
+Q18 - What is a Promise in Node.js?
+A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers to an asynchronous action’s eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of the final value, the asynchronous method returns a promise for the value at some point in the future.
+
+Q19 - What module do you use for accessing/modifying files in Node.js?
+Node FS (File System) can be used for file operations. Node FS is a builtin module. It can be included in the script using the following statement :
+
+var fs = require('fs');
+Some of the functions fs module provides are :
+
+fs.readFile()
+fs.writeFile()
+fs.appendFile()
+fs.open()
+fs.rename()
+fs.unlink()
+The above mentioned functions are asynchronous. Synchronous variants for these are also available.
+
+Q20 - What is chaining in Node.js?
+Each function of a module returns the modified variable. So, another function call can be concatenated to the previous function call.
+
+Following is a non-working example for chaining in Node.js :
+
+var.someFunction().anotherFunction().someAnotherFunc();
+Q21 - How to exit from a Node.js Script?
+The execution of a Node.js script happens sequentially. For some reason, if you want to exit, the built-in process module has exit() method.
+
+process.exit(-1);
+Q22 - How to ensure that the dependencies in a Node.js project are secure?
+Q23 - How do you redirect a url to other in Node.js?
+http module can be used to setup an url redirect.
+
+In the following example, we created an HTTP server. When the server gets a request for a resource, we can send a redirect response back to the browser using response.writeHead() function. The response code should be 301 for a redirect and the redirect url is provided as well in writeHead() function.
+
+var http = require('http');
+var fs = require('fs');
+  
+// create a http server
+http.createServer(function (req, res) {
+     
+    if (req.url == '/page-c.html') {
+        // redirect to page-b.html with 301 (Moved Permanently) HTTP code in the response
+        res.writeHead(301, { "Location": "http://" + req.headers['host'] + '/page-b.html' });
+        return res.end();
+    } else {
+        // for other URLs, try responding with the page
+        console.log(req.url)
+        // read requested file
+        fs.readFile(req.url.substring(1),
+            function(err, data) { 
+                if (err) throw err;
+                res.writeHead(200);
+                res.write(data.toString('utf8'));
+                return res.end();
+        });
+    } 
+}).listen(8085);
+Q24 - What is Buffer in Node.js?
+Node.js Buffer is a class that helps to handle and work with octet streams. Octet streams would generally come into picture when dealing with TCP data streams and file system operations.
+
+Q25 - Give us an example to create HTTP web server?
+We can use http module to create a HTTP web server in Node.js.
+
+Brief steps to create HTTP web server :
+
+ Include http module.
+Create http server to listen on a port.
+Write program statements to prepare response.
+Run the script to start the web server.
+From the same machine, you can request the server using localhost:port
+An example script to create a web server is :
+
+// include http module in the file
+var http = require('http');
+  
+// create a server
+http.createServer(function (req, res) {
+    // http header
+    // 200 - is the OK message
+    // to respond with html content, 'Content-Type' should be 'text/html'
+    res.writeHead(200, {'Content-Type': 'text/html'}); 
+    res.write('Node.js says hello!'); //write a response to the client
+    res.end(); //end the response
+}).listen(9000); //the server object listens on port 9000
+Reference : Node.js – Create HTTP Web Server
+
+Q26 - How do you connect your Node.js application to MySQL?
+From Node.js, we can connect to MySQL server. We can use mysql module.
+
+Include mysql module in the script file.
+Create a connection variable with the information : MySQL Server IP, Port, Username, Password.
+Call connect method using connection variable. If the setup is fine, the callback function should receive a null error object.
+An example Node.js script to connect to MySQL server :
+
+// include mysql module
+var mysql = require('mysql');
+  
+// create a connection variable with the details required
+var con = mysql.createConnection({
+  host: "localhost",    // ip address of server running mysql
+  user: "arjun",    // user name to your mysql database
+  password: "password"    // corresponding password
+});
+  
+// connect to the database.
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+Reference : Node.js – Connect to MySQL Database
+
+Q27 - What is a result object in Node.js MySQL?
+When a MySQL Query is executed in Node.js, an object called Result Object is returned to the callback function. The Result Object contains result set or properties that provide information regarding the execution of a query in MySQL Server.
+
+The data in result object depends on the type of query that is made to MySQL Server.
